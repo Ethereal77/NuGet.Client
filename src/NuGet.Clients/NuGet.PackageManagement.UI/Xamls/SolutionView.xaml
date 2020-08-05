@@ -16,7 +16,9 @@
       <local:TooltipConverter
         x:Key="TooltipConverter" />
       <local:NotNullToBooleanConverter
-        x:Key="NotNullToBooleanConverter" />  
+        x:Key="NotNullToBooleanConverter" />
+      <local:BooleanToWidthConverter
+        x:Key="BooleanToWidthConverter" />
       <ControlTemplate
         x:Key="SeparatorControlTemplate">
         <Separator
@@ -290,7 +292,7 @@
               Focusable="True"
               IsTabStop="True"
               FocusVisualStyle="{DynamicResource ControlsFocusVisualStyle}"/>
-            
+
             <GridViewColumn.CellTemplate>
               <DataTemplate>
                 <StackPanel Orientation="Horizontal">
@@ -304,10 +306,12 @@
               </DataTemplate>
             </GridViewColumn.CellTemplate>
           </GridViewColumn>
-
+          
           <!-- the requested version column -->
           <GridViewColumn
-            DisplayMemberBinding="{Binding RequestedVersion}">
+            DisplayMemberBinding="{Binding RequestedVersion}"
+            Width="{Binding IsRequestedVisible}">
+            <!--Width="{Binding Path=IsRequestedVisible, Converter={StaticResource BooleanToWidthConverter, Mode=TwoWay}}">-->
             <GridViewColumn.Header>
               <GridViewColumnHeader
                 AutomationProperties.Name="{x:Static local:Resources.ColumnHeader_RequestedVersion}"

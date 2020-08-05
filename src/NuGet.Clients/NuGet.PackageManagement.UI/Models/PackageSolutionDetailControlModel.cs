@@ -62,6 +62,8 @@ namespace NuGet.PackageManagement.UI
             }
         }
 
+        public string IsRequestedVisible { get; set; }
+
         private void UpdateInstalledVersions()
         {
             var hash = new HashSet<NuGetVersion>();
@@ -71,7 +73,7 @@ namespace NuGet.PackageManagement.UI
                 try
                 {
                     var installedVersion = GetInstalledPackage(project.NuGetProject, Id);
-                    if (installedVersion != null) // NuGet.ProjectModel.ProjectStyle.PackageReference
+                    if (installedVersion != null)
                     {
                         project.InstalledVersion = installedVersion.PackageIdentity.Version;
                         hash.Add(installedVersion.PackageIdentity.Version);
@@ -79,6 +81,10 @@ namespace NuGet.PackageManagement.UI
                         if (project.NuGetProject.ProjectStyle.Equals(NuGet.ProjectModel.ProjectStyle.PackageReference))
                         {
                             project.RequestedVersion = installedVersion?.AllowedVersions?.OriginalString;
+                            IsRequestedVisible = "400";
+                        } else
+                        {
+                            IsRequestedVisible = "0";
                         }
                     }
                     else
