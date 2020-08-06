@@ -216,5 +216,7 @@ namespace NuGet.PackageManagement.UI
                 e.Handled = true;
             }
         }
+
+        public bool IsRequestedVisible { get; set; }
     }
 }

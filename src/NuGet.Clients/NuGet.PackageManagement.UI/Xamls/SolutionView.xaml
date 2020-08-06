@@ -310,8 +310,7 @@
           <!-- the requested version column -->
           <GridViewColumn
             DisplayMemberBinding="{Binding RequestedVersion}"
-            Width="{Binding IsRequestedVisible}">
-            <!--Width="{Binding Path=IsRequestedVisible, Converter={StaticResource BooleanToWidthConverter, Mode=TwoWay}}">-->
+            Width="{Binding IsRequestedVisible, Converter={StaticResource BooleanToWidthConverter}}">
             <GridViewColumn.Header>
               <GridViewColumnHeader
                 AutomationProperties.Name="{x:Static local:Resources.ColumnHeader_RequestedVersion}"
@@ -324,13 +323,14 @@
                 PreviewKeyUp="SortableColumnHeader_PreviewKeyUp"
                 Focusable="True"
                 IsTabStop="True"
+                Visibility="{Binding IsRequestedVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
                 FocusVisualStyle="{DynamicResource ControlsFocusVisualStyle}"/>
             </GridViewColumn.Header>
           </GridViewColumn>
           
           <!-- the version column -->
           <GridViewColumn
-            DisplayMemberBinding="{Binding InstalledVersion,Converter={StaticResource VersionToStringConverter}}">
+            DisplayMemberBinding="{Binding InstalledVersion, Converter={StaticResource VersionToStringConverter}}">
             <GridViewColumn.Header>
               <GridViewColumnHeader
                 AutomationProperties.Name="{x:Static local:Resources.ColumnHeader_Version}"

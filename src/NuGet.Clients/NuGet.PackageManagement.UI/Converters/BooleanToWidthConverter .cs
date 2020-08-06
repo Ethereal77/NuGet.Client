@@ -15,7 +15,7 @@ namespace NuGet.PackageManagement.UI
         {
             var boolValue = (bool)value;
 
-            return boolValue ? "40" : "0";
+            return boolValue ? "auto" : "0";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
