@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Runtime.Versioning;
+using NuGet.Commands;
 using NuGet.Frameworks;
 using NuGet.VisualStudio.Implementation.Resources;
 
@@ -121,12 +122,15 @@ namespace NuGet.VisualStudio
 
             NuGetFramework ToNuGetFramework(IVsNuGetFramework framework, string paramName)
             {
-                NuGetFramework nugetFramework = NuGetFramework.ParseComponents(
-                    framework.TargetFrameworkIdentifier,
-                    framework.TargetFrameworkVersion,
-                    framework.TargetFrameworkProfile,
-                    framework.TargetPlatformIdentifier,
-                    framework.TargetPlatformVersion);
+                NuGetFramework nugetFramework = MSBuildProjectFrameworkUtility.GetProjectFramework(
+                    projectFilePath: null,
+                    targetFrameworkMoniker: null,
+                    targetFrameworkIdentifier: framework.TargetFrameworkIdentifier,
+                    targetFrameworkVersion: framework.TargetFrameworkVersion,
+                    targetFrameworkProfile: framework.TargetFrameworkProfile,
+                    targetPlatformIdentifier: framework.TargetPlatformIdentifier,
+                    targetPlatformVersion: framework.TargetPlatformVersion,
+                    targetPlatformMinVersion: null);
                 if (!nugetFramework.IsSpecificFramework)
                 {
                     throw new ArgumentException($"Framework '{framework}' could not be parsed", paramName);
