@@ -24,31 +24,31 @@ param
 
 
 if ($BuildRTM -eq 'false')
-{   
+{
 
     $NuGetClientRoot = $env:BUILD_REPOSITORY_LOCALPATH
     $NuGetValidator = [System.IO.Path]::Combine($NuGetClientRoot, 'packages', 'nugetvalidator', '2.0.2', 'tools', 'NuGetValidator.exe')
     $VsixLogOutputDir = [System.IO.Path]::Combine($BuildOutputTargetPath, 'LocalizationValidation', 'vsix' )
     $LocalizationRepository = [System.IO.Path]::Combine($NuGetClientRoot, 'submodules', 'NuGet.Build.Localization', 'localize', 'comments', '15')
-    
-    if ($ValidateVsix) 
+
+    if ($ValidateVsix)
     {
         $VsixLocation = [System.IO.Path]::Combine($BuildOutputTargetPath, 'artifacts', 'VS15', 'NuGet.Tools.vsix' )
-        $VsixExtractLocation = [System.IO.Path]::Combine($env:SYSTEM_DEFAULTWORKINGDIRECTORY, 'extractedVsix' ) 
+        $VsixExtractLocation = [System.IO.Path]::Combine($env:SYSTEM_DEFAULTWORKINGDIRECTORY, 'extractedVsix' )
         $VsixLogOutputDir = [System.IO.Path]::Combine($BuildOutputTargetPath, 'LocalizationValidation', 'vsix' )
 
         Write-Host "Validating NuGet.Tools.Vsix localization..."
         Write-Host "Running: $NuGetValidator localization --vsix --vsix-path $VsixLocation --vsix-extract-path $VsixExtractLocation --output-path $VsixLogOutputDir --comments-path $LocalizationRepository"
         & $NuGetValidator localization --vsix --vsix-path $VsixLocation --vsix-extract-path $VsixExtractLocation --output-path $VsixLogOutputDir --comments-path $LocalizationRepository
     }
-    else 
+    else
     {
         $ArtifactsLocation = [System.IO.Path]::Combine($NuGetClientRoot, 'artifacts')
         $ArtifactsLogOutputDir = [System.IO.Path]::Combine($BuildOutputTargetPath, 'LocalizationValidation', 'artifacts' )
 
         Write-Host "Validating NuGet.Client repository localization..."
-        Write-Host "Running: $NuGetValidator localization --artifacts-path $ArtifactsLocation --output-path $ArtifactsLogOutputDir --comments-path $LocalizationRepository"
-        & $NuGetValidator localization --artifacts-path $ArtifactsLocation --output-path $ArtifactsLogOutputDir --comments-path $LocalizationRepository
+        Write-Host "Running: $NuGetValidator localization --artifacts-path $ArtifactsLocation --output-path $ArtifactsLogOutputDir --comments-path $LocalizationRepository --filter-paths-containing net45"
+        & $NuGetValidator localization --artifacts-path $ArtifactsLocation --output-path $ArtifactsLogOutputDir --comments-path $LocalizationRepository  --filter-paths-containing net45
     }
 
     # return the exit code from the validator
