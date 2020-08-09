@@ -1,4 +1,0 @@
-NuGet.ProjectModel.ProjectRestoreMetadataFrameworkInfo.TargetAlias.get -> string
-NuGet.ProjectModel.ProjectRestoreMetadataFrameworkInfo.TargetAlias.set -> void
-NuGet.ProjectModel.TargetFrameworkInformation.TargetAlias.get -> string
-NuGet.ProjectModel.TargetFrameworkInformation.TargetAlias.set -> void

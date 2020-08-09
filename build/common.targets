@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0">
   <!-- Compiler flags -->
   <PropertyGroup Condition=" '$(TargetFramework)' == '$(NETFXTargetFramework)' ">
@@ -56,7 +56,8 @@
 
   <!-- Projects we pack become public APIs that others can use -->
   <PropertyGroup Condition=" '$(IsBuildOnlyXPLATProjects)' != 'true' and '$(PackProject)' == 'true' ">
-    <UsePublicApiAnalyzer Condition=" '$(UsePublicApiAnalyzer)' == '' " >true</UsePublicApiAnalyzer>
+    <!--<UsePublicApiAnalyzer Condition=" '$(UsePublicApiAnalyzer)' == '' " >true</UsePublicApiAnalyzer>-->
+    <UsePublicApiAnalyzer>false</UsePublicApiAnalyzer>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(UsePublicApiAnalyzer)' == 'true' ">
@@ -253,7 +254,7 @@
     <ItemGroup>
       <DllsToLocalizeWithMetadata Include="@(BuiltProjectOutputGroupOutput->'%(FinalOutputPath)')" Condition="'%(Extension)' == '.dll' OR '%(Filename)' == 'NuGet.CommandLine.XPlat'" KeepDuplicates="false">
         <TranslationFile>$(LocalizationRootDirectory)\{Lang}\15\%(Filename).dll.lcl</TranslationFile>    <!--Required: translation file-->
-	      <LciCommentFile>$(LocalizationRootDirectory)\comments\15\%(Filename).dll.lci</LciCommentFile>
+        <LciCommentFile>$(LocalizationRootDirectory)\comments\15\%(Filename).dll.lci</LciCommentFile>
       </DllsToLocalizeWithMetadata>
     </ItemGroup>
   </Target>
