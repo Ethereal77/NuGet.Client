@@ -18,6 +18,7 @@ using NuGet.Packaging.Signing;
 using NuGet.ProjectManagement;
 using NuGet.ProjectManagement.Projects;
 using NuGet.Protocol.Core.Types;
+using FileSystemUtility = NuGet.ProjectManagement.FileSystemUtility;
 
 namespace NuGet.PackageManagement
 {
@@ -112,7 +113,7 @@ namespace NuGet.PackageManagement
         /// <param name="solutionDirectory">Current solution directory</param>
         /// <param name="packageReferencesDict">Dictionary of package reference with project names</param>
         /// <returns>List of packages restore data with missing package details.</returns>
-	    public IEnumerable<PackageRestoreData> GetPackagesRestoreData(string solutionDirectory,
+        public IEnumerable<PackageRestoreData> GetPackagesRestoreData(string solutionDirectory,
         Dictionary<PackageReference, List<string>> packageReferencesDict)
         {
             var packages = new List<PackageRestoreData>();

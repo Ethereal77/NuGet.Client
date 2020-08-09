@@ -18,6 +18,7 @@ using NuGet.Packaging;
 using NuGet.Packaging.Core;
 using NuGet.ProjectModel;
 using NuGet.Protocol.Core.Types;
+using Strings = NuGet.PackageManagement.Strings;
 
 namespace NuGet.ProjectManagement
 {

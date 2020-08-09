@@ -151,7 +151,7 @@ namespace NuGet.Packaging
         {
             string schemaNamespace = ManifestSchemaUtility.SchemaVersionV1;
             var rootNameSpace = document.Root.Name.Namespace;
-            if (rootNameSpace != null && !String.IsNullOrEmpty(rootNameSpace.NamespaceName))
+            if (rootNameSpace != null && !string.IsNullOrEmpty(rootNameSpace.NamespaceName))
             {
                 schemaNamespace = rootNameSpace.NamespaceName;
             }
@@ -267,7 +267,7 @@ namespace NuGet.Packaging
 
             if (results.Any())
             {
-                string message = String.Join(Environment.NewLine, results);
+                string message = string.Join(Environment.NewLine, results);
                 throw new Exception(message);
             }
 
@@ -285,7 +285,7 @@ namespace NuGet.Packaging
                     // Throw an error if this dependency has been defined more than once
                     if (!dependencyHash.Add(dependency.Id))
                     {
-                        throw new InvalidOperationException(String.Format(CultureInfo.CurrentCulture, NuGetResources.DuplicateDependenciesDefined, metadata.Id, dependency.Id));
+                        throw new InvalidOperationException(string.Format(CultureInfo.CurrentCulture, NuGetResources.DuplicateDependenciesDefined, metadata.Id, dependency.Id));
                     }
 
                     // Validate the dependency version
@@ -306,12 +306,12 @@ namespace NuGet.Packaging
                          !dependency.VersionRange.IsMinInclusive) &&
                         dependency.VersionRange.MaxVersion == dependency.VersionRange.MinVersion)
                     {
-                        throw new InvalidOperationException(String.Format(CultureInfo.CurrentCulture, NuGetResources.DependencyHasInvalidVersion, dependency.Id));
+                        throw new InvalidOperationException(string.Format(CultureInfo.CurrentCulture, NuGetResources.DependencyHasInvalidVersion, dependency.Id));
                     }
 
                     if (dependency.VersionRange.MaxVersion < dependency.VersionRange.MinVersion)
                     {
-                        throw new InvalidOperationException(String.Format(CultureInfo.CurrentCulture, NuGetResources.DependencyHasInvalidVersion, dependency.Id));
+                        throw new InvalidOperationException(string.Format(CultureInfo.CurrentCulture, NuGetResources.DependencyHasInvalidVersion, dependency.Id));
                     }
                 }
             }

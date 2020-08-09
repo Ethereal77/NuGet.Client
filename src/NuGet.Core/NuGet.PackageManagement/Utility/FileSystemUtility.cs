@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using NuGet.Common;
 using NuGet.PackageManagement;
 using NuGet.Packaging;
+using Strings = NuGet.PackageManagement.Strings;
 
 namespace NuGet.ProjectManagement
 {

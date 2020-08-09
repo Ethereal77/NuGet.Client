@@ -21,6 +21,7 @@ using NuGet.Packaging.Core;
 using NuGet.ProjectModel;
 using NuGet.Shared;
 using NuGet.Versioning;
+using Strings = NuGet.PackageManagement.Strings;
 
 namespace NuGet.ProjectManagement.Projects
 {
@@ -161,7 +162,7 @@ namespace NuGet.ProjectManagement.Projects
             // Extending class will implement the functionality.
             return Task.FromResult((string) null);
         }
-       
+
         public override async Task<IReadOnlyList<PackageSpec>> GetPackageSpecsAsync(DependencyGraphCacheContext context)
         {
             var (dgSpecs, _) = await GetPackageSpecsAndAdditionalMessagesAsync(context);

@@ -16,6 +16,7 @@ using NuGet.Packaging.PackageExtraction;
 using NuGet.Packaging.Signing;
 using NuGet.Protocol;
 using NuGet.Protocol.Core.Types;
+using Strings = NuGet.PackageManagement.Strings;
 
 namespace NuGet.ProjectManagement
 {

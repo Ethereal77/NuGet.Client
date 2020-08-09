@@ -14,6 +14,7 @@ using NuGet.Frameworks;
 using NuGet.PackageManagement;
 using NuGet.Packaging;
 using NuGet.Packaging.Core;
+using Strings = NuGet.PackageManagement.Strings;
 
 namespace NuGet.ProjectManagement
 {
@@ -40,7 +41,7 @@ namespace NuGet.ProjectManagement
         }
 
         /// <summary>
-        /// Filter out invalid package items and replace the directory separator with the correct slash for the 
+        /// Filter out invalid package items and replace the directory separator with the correct slash for the
         /// current OS.
         /// </summary>
         /// <remarks>If the group is null or contains only only _._ this method will return the same group.</remarks>
