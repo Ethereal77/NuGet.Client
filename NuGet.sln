@@ -18,6 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{DE23D0
 		build\Shared\TypeInfo.cs = build\Shared\TypeInfo.cs
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stride.Core.NuGet", "src\NuGet.Core\Stride.Core.NuGet.csproj", "{81B3F867-CD57-43C3-9E16-FB55BBCB37A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,11 +26,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81B3F867-CD57-43C3-9E16-FB55BBCB37A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81B3F867-CD57-43C3-9E16-FB55BBCB37A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81B3F867-CD57-43C3-9E16-FB55BBCB37A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81B3F867-CD57-43C3-9E16-FB55BBCB37A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{81B3F867-CD57-43C3-9E16-FB55BBCB37A9} = {BD1946CE-5544-4F28-A04A-9C3D51113E1A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3747A66A-00D1-41B8-A9C5-ED0D7BEA9D25}
